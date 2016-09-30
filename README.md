@@ -1,3 +1,3 @@
 # 😈 exercism.io
 
-My solutions for [exercism.io](http://exercism.io/).
+My solutions to [exercism.io](http://exercism.io/).
