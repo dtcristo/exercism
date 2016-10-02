@@ -1,11 +1,16 @@
-module Accumulate exposing (..)
+module Accumulate exposing (accumulate)
 
 
 accumulate : (a -> b) -> List a -> List b
-accumulate fn list =
+accumulate f =
+    doAccumulate f []
+
+
+doAccumulate : (a -> b) -> List b -> List a -> List b
+doAccumulate f acc list =
     case list of
         [] ->
-            []
+            acc
 
         head :: tail ->
-            fn head :: (accumulate fn tail)
+            doAccumulate f (acc ++ [ f head ]) tail
