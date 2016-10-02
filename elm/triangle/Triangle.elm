@@ -7,7 +7,6 @@ type Triangle
     = Equilateral
     | Isosceles
     | Scalene
-    | Degenerate
 
 
 triangleKind : number -> number -> number -> Result String Triangle
