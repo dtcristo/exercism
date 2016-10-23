@@ -12,36 +12,38 @@ type Planet
     | Neptune
 
 
-ageOn : Planet -> Int -> Float
+ageOn : Planet -> Float -> Float
 ageOn planet seconds =
     let
-        earthYear =
+        earthYearSeconds =
             31557600.0
-
-        secondsFloat =
-            toFloat (seconds)
     in
-        case planet of
-            Mercury ->
-                secondsFloat / earthYear / 0.2408467
+        seconds / earthYearSeconds / orbitalPeriodYears planet
 
-            Venus ->
-                secondsFloat / earthYear / 0.61519726
 
-            Earth ->
-                secondsFloat / earthYear / 1.0
+orbitalPeriodYears : Planet -> Float
+orbitalPeriodYears planet =
+    case planet of
+        Mercury ->
+            0.2408467
 
-            Mars ->
-                secondsFloat / earthYear / 1.8808158
+        Venus ->
+            0.61519726
 
-            Jupiter ->
-                secondsFloat / earthYear / 11.862615
+        Earth ->
+            1.0
 
-            Saturn ->
-                secondsFloat / earthYear / 29.447498
+        Mars ->
+            1.8808158
 
-            Uranus ->
-                secondsFloat / earthYear / 84.016846
+        Jupiter ->
+            11.862615
 
-            Neptune ->
-                secondsFloat / earthYear / 164.79132
+        Saturn ->
+            29.447498
+
+        Uranus ->
+            84.016846
+
+        Neptune ->
+            164.79132
